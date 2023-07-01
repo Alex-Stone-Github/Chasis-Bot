@@ -11,7 +11,7 @@ struct ChasisSpeeds {
 struct Pose {
     double x;
     double y;
-    double t;
+    double a;
 };
 class KinematicsLayer {
 public:

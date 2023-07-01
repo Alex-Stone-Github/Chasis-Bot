@@ -4,9 +4,6 @@ Encoder::Encoder(int clkpin, int dtpin): clkpin(clkpin), dtpin(dtpin) {
   pinMode(clkpin, INPUT);
   pinMode(dtpin, INPUT);
 }
-int Encoder::read_raw() {
-    return cnt;
-}
 void Encoder::service() {
     bool clk = digitalRead(clkpin)==HIGH;
     bool dt = digitalRead(dtpin)==HIGH;
@@ -27,5 +24,5 @@ void Encoder::set_ticks_per_unit(double ratio) {
     ticks_per_unit = ratio;
 }
 double Encoder::read() {
-    return (double)read() / ticks_per_unit;
+    return (double)cnt / ticks_per_unit;
 }
